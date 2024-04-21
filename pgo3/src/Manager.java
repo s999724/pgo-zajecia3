@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Manager extends Employee{
@@ -9,5 +8,12 @@ public class Manager extends Employee{
     public void addGoals(Goal g){
         goals.add(g);
         System.out.println("Added goal " + g.getName() + " to manager " + this.getFirstName() + " " + this.getLastName());
+    }
+    @Override public ArrayList<Bonus> GetBonusActivities(){
+        ArrayList<Bonus> currGoals = new ArrayList<>();
+        for (Goal goal : goals){
+            currGoals.add(goal);
+        }
+        return currGoals;
     }
 }

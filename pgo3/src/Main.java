@@ -1,9 +1,4 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
-//Do dodania kalkulacja z każdego bonusu - każdy typ pracownika musi mieć swoją metodę kalkulacji wynagrodzenia z dodatkowym bonusem
-//bonus jest jednorazowy, więc to badziewie musi być nie dodawane do baseSalary
 public class Main {
     public static void main(String[] args) {
         ArrayList<Employee> employees = new ArrayList<>();

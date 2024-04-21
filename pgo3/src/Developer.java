@@ -9,4 +9,11 @@ public class Developer extends Employee{
         technologies.add(t);
         System.out.println("Added technology " + t.getName() + " to developer " + this.getFirstName() + " " + this.getLastName());
     }
+    @Override public ArrayList<Bonus> GetBonusActivities(){
+        ArrayList<Bonus> currTechs = new ArrayList<>();
+        for (Technology tech : technologies){
+            currTechs.add(tech);
+        }
+        return currTechs;
+    }
 }

@@ -1,15 +1,19 @@
-public class Technology {
+public class Technology extends Bonus{
     private String name;
     private int bonus;
-
     public Technology(String name, int bonus) {
         this.name = name;
         this.bonus = bonus;
     }
-    public String getName(){
+    @Override public String getName(){
         return name;
     }
-    public int getBonus(){
-        return bonus;
+    @Override public int getBonus() {
+        if (getBonusEligibility()){
+            return bonus;
+        } else {
+            return 0;
+        }
     }
+    @Override public boolean getBonusEligibility(){ return true; }
 }

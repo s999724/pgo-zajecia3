@@ -10,4 +10,11 @@ public class Tester extends Employee{
         tests.add(t);
         System.out.println("Added test " + testName + " to tester " + this.getFirstName() + " " + this.getLastName());
     }
+    @Override public ArrayList<Bonus> GetBonusActivities(){
+        ArrayList<Bonus> currTests = new ArrayList<>();
+        for (Test test : tests){
+            currTests.add(test);
+        }
+        return currTests;
+    }
 }

@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Employee {
     private String firstName;
@@ -10,19 +11,19 @@ public class Employee {
     private int baseSalary = 3000;
 
     public Employee(String firstName, String lastName, String city, String emailAddress, String PESEL, int hireYear) {
-        if (firstName.trim() == ""){
+        if (firstName.trim().equals("")){
             throw new IllegalArgumentException("First name is invalid; Name used: " + firstName);
         }
-        if (lastName.trim() == ""){
+        if (lastName.trim().equals("")){
             throw new IllegalArgumentException("Last name is invalid; Name used: " + lastName);
         }
-        if (city.trim() == ""){
+        if (city.trim().equals("")){
             throw new IllegalArgumentException("City name is invalid; Name used: " + city);
         }
-        if (emailAddress.trim() == "" || !emailAddress.contains("@")){
+        if (emailAddress.trim().equals("") || !emailAddress.contains("@")){
             throw new IllegalArgumentException("E-Mail address is invalid; E-Mail used: " + emailAddress);
         }
-        if (PESEL.trim() == ""){
+        if (PESEL.trim().equals("")){
             throw new IllegalArgumentException("PESEL number is invalid; PESEL used: " + PESEL);
         }
         try{
@@ -44,8 +45,13 @@ public class Employee {
         int returnSalary = baseSalary;
         int todaysYear = LocalDate.now().getYear();
         returnSalary += (todaysYear - hireYear) * 1000;
+        ArrayList<Bonus> currEmployeeBonus = GetBonusActivities();
+        for (Bonus b : currEmployeeBonus){
+            returnSalary += b.getBonus();
+        }
         return returnSalary;
     }
+    public ArrayList<Bonus> GetBonusActivities(){return null;}
     public String getFirstName() {
         return firstName;
     }
